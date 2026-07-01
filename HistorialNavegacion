@@ -15,7 +15,7 @@ public class HistorialNavegacion {
     public void back() {
         if (historial.size() > 1) {
             historial.pop();
-            System.out.println("Retrocediendo... Ahora estás en: " + historial.peek());
+            System.out.println("Retrocediendo, Ahora estás en: " + historial.peek());
         } else if (historial.size() == 1) {
             System.out.println("No hay páginas en el historial a las que volver.");
         } else {
