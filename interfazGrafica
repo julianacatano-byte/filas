@@ -1,0 +1,47 @@
+import java.util.Stack;
+
+public class HistorialNavegacion {
+
+    private Stack<String> historial;
+
+    public HistorialNavegacion() {
+        historial = new Stack<>();
+    }
+
+    public void visitPage(String url) {
+        historial.push(url);
+    }
+
+    public void back() {
+        if (historial.size() > 1) {
+            historial.pop();
+            System.out.println("Retrocediendo, ahora estás en: " + historial.peek());
+        } else if (historial.size() == 1) {
+            System.out.println("No hay páginas en el historial a las que volver.");
+        } else {
+            System.out.println("El historial está vacío.");
+        }
+    }
+    public void currentPage() {
+        if (!historial.isEmpty()) {
+            System.out.println("Estás actualmente en: " + historial.peek());
+        } else {
+            System.out.println("No hay ninguna página abierta.");
+        }
+    }
+
+    public static void main(String[] args) {
+
+        HistorialNavegacion navegador = new HistorialNavegacion();
+
+        navegador.visitPage("google.com");
+        navegador.visitPage("wikipedia.org");
+        navegador.visitPage("youtube.com");
+
+        navegador.currentPage();
+        navegador.back();
+        navegador.back();
+        navegador.back();
+    }
+}
+    
